@@ -1,0 +1,1319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ArcherConnectIAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Bankruptcy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Bankruptcy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="DomainPersonId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Case' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Case">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="CourtCaseRef" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Claim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Claim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Claimant' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Claimant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="DomainPersonId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.DomainPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DomainPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Lien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Lien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.Medical_Record' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Medical_Record">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.OrgPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OrgPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgTypeAssignmentId" Type="int" />
+          <Property Name="SystemObjectPermissionId" Type="int" />
+        </EntityType>
+        <EntityType Name="OrgPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgTypeAssignment" Type="int" />
+          <Property Name="Person" Type="int" />
+        </EntityType>
+        <EntityType Name="OrgType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OrgTypeAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organization" Type="int" />
+          <Property Name="OrganizationType" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.SystemObjectPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SystemObjectPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="PermissionId" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.SystemPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SystemPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="IsWrite" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IsUpdate" Type="bit" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.SystemPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SystemPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SystemRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.SystemRolePermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SystemRolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="SystemObjectPermissionId" Type="int" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemPersonId" Type="int" />
+          <Property Name="RecoveryEmail" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SystemUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.UI Element' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UI Element">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.UI Module' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UI Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.UI Module Element' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UI Module Element">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="ModuleId" Type="int" />
+          <Property Name="ElementId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_AvailableModulePermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_AvailableModulePermission">
+          <Key>
+            <PropertyRef Name="SystemObjectPermissionId" />
+          </Key>
+          <Property Name="ModuleElementObjectID" Type="uniqueidentifier" />
+          <Property Name="elementName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionId" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemObjectPermissionId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_Claimant' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Claimant">
+          <Key>
+            <PropertyRef Name="ClaimantId" />
+          </Key>
+          <Property Name="ClaimantId" Type="int" Nullable="false" />
+          <Property Name="ObjectID" Type="uniqueidentifier" />
+          <Property Name="domainpersonid" Type="int" />
+          <Property Name="First_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="ssn" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveOrgPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_EffectiveOrgPermission">
+          <Key>
+            <PropertyRef Name="OrgTypeAssignmentId" />
+            <PropertyRef Name="OrgPermissionId" />
+            <PropertyRef Name="SystemObjectPermissionId" />
+          </Key>
+          <Property Name="OrgTypeAssignmentId" Type="int" Nullable="false" />
+          <Property Name="OrgPermissionId" Type="int" Nullable="false" />
+          <Property Name="SystemObjectPermissionId" Type="int" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrganizationType" Type="nvarchar" MaxLength="255" />
+          <Property Name="ElementName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveRolePermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_EffectiveRolePermission">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="SystemRolePermissionId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemRolePermissionId" Type="int" Nullable="false" />
+          <Property Name="systemObjectPermissionID" Type="int" />
+          <Property Name="ElementName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveUserPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_EffectiveUserPermission">
+          <Key>
+            <PropertyRef Name="SystemUserId" />
+            <PropertyRef Name="PermissionType" />
+          </Key>
+          <Property Name="SystemUserId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="ElementName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionType" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ArcherConnectIAM.dbo.vw_ModuleElement' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vw_ModuleElement">
+          <Property Name="ModuleElementObjectID" Type="uniqueidentifier" />
+          <Property Name="elementName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_OrgPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_OrgPerson">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="OrgTypeAssignmentID" />
+            <PropertyRef Name="OrgPersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrgTypeAssignmentID" Type="int" Nullable="false" />
+          <Property Name="OrgPersonID" Type="int" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrganizationType" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_OrgTypeAssignment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_OrgTypeAssignment">
+          <Key>
+            <PropertyRef Name="OrgTypeAssignmentId" />
+          </Key>
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrganizationType" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrgTypeAssignmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_OrgUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_OrgUser">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="OrgTypeAssignmentID" />
+            <PropertyRef Name="OrgPersonID" />
+            <PropertyRef Name="SystemUserId" />
+          </Key>
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrgTypeAssignmentID" Type="int" Nullable="false" />
+          <Property Name="OrgPersonID" Type="int" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrganizationType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemUserId" Type="int" Nullable="false" />
+          <Property Name="RecoveryEmail" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_SystemObjectPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_SystemObjectPermission">
+          <Key>
+            <PropertyRef Name="ModuleElementId" />
+          </Key>
+          <Property Name="ModuleElementId" Type="int" Nullable="false" />
+          <Property Name="ModuleElementObjectId" Type="uniqueidentifier" />
+          <Property Name="ModuleId" Type="int" />
+          <Property Name="ElementId" Type="int" />
+          <Property Name="SystemObjectPermissionID" Type="int" />
+          <Property Name="PermissionId" Type="int" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_UserRole">
+          <Key>
+            <PropertyRef Name="systemuserRoleID" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="systemuserRoleID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ArcherConnectIAMModelStoreContainer">
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgPerson" EntityType="Self.OrgPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgType" EntityType="Self.OrgType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgTypeAssignment" EntityType="Self.OrgTypeAssignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemRole" EntityType="Self.SystemRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUserRole" EntityType="Self.SystemUserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bankruptcy" EntityType="Self.Bankruptcy" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bankruptcy].[Id] AS [Id], 
+    [Bankruptcy].[ObjectID] AS [ObjectID], 
+    [Bankruptcy].[DomainPersonId] AS [DomainPersonId]
+    FROM [dbo].[Bankruptcy] AS [Bankruptcy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Case" EntityType="Self.Case" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Case].[Id] AS [Id], 
+    [Case].[ObjectID] AS [ObjectID], 
+    [Case].[Name] AS [Name], 
+    [Case].[CourtCaseRef] AS [CourtCaseRef]
+    FROM [dbo].[Case] AS [Case]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Claim" EntityType="Self.Claim" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Claim].[Id] AS [Id], 
+    [Claim].[ObjectID] AS [ObjectID], 
+    [Claim].[Name] AS [Name]
+    FROM [dbo].[Claim] AS [Claim]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Claimant" EntityType="Self.Claimant" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Claimant].[Id] AS [Id], 
+    [Claimant].[ObjectID] AS [ObjectID], 
+    [Claimant].[DomainPersonId] AS [DomainPersonId]
+    FROM [dbo].[Claimant] AS [Claimant]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DomainPerson" EntityType="Self.DomainPerson" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DomainPerson].[Id] AS [Id], 
+    [DomainPerson].[First_Name] AS [First_Name], 
+    [DomainPerson].[Last_Name] AS [Last_Name], 
+    [DomainPerson].[SSN] AS [SSN]
+    FROM [dbo].[DomainPerson] AS [DomainPerson]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Lien" EntityType="Self.Lien" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Lien].[Id] AS [Id], 
+    [Lien].[ObjectID] AS [ObjectID], 
+    [Lien].[Name] AS [Name]
+    FROM [dbo].[Lien] AS [Lien]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Medical_Record" EntityType="Self.Medical_Record" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Medical_Record].[Id] AS [Id], 
+    [Medical_Record].[ObjectID] AS [ObjectID], 
+    [Medical_Record].[Name] AS [Name]
+    FROM [dbo].[Medical_Record] AS [Medical_Record]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OrgPermission" EntityType="Self.OrgPermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OrgPermission].[Id] AS [Id], 
+    [OrgPermission].[OrgTypeAssignmentId] AS [OrgTypeAssignmentId], 
+    [OrgPermission].[SystemObjectPermissionId] AS [SystemObjectPermissionId]
+    FROM [dbo].[OrgPermission] AS [OrgPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SystemObjectPermission" EntityType="Self.SystemObjectPermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SystemObjectPermission].[Id] AS [Id], 
+    [SystemObjectPermission].[ObjectID] AS [ObjectID], 
+    [SystemObjectPermission].[PermissionId] AS [PermissionId], 
+    [SystemObjectPermission].[Description] AS [Description]
+    FROM [dbo].[SystemObjectPermission] AS [SystemObjectPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SystemPermission" EntityType="Self.SystemPermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SystemPermission].[Id] AS [Id], 
+    [SystemPermission].[IsRead] AS [IsRead], 
+    [SystemPermission].[IsWrite] AS [IsWrite], 
+    [SystemPermission].[IsDelete] AS [IsDelete], 
+    [SystemPermission].[IsUpdate] AS [IsUpdate], 
+    [SystemPermission].[Name] AS [Name]
+    FROM [dbo].[SystemPermission] AS [SystemPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SystemPerson].[Id] AS [Id], 
+    [SystemPerson].[FirstName] AS [FirstName], 
+    [SystemPerson].[LastName] AS [LastName], 
+    [SystemPerson].[Email] AS [Email]
+    FROM [dbo].[SystemPerson] AS [SystemPerson]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SystemRolePermission" EntityType="Self.SystemRolePermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SystemRolePermission].[Id] AS [Id], 
+    [SystemRolePermission].[RoleId] AS [RoleId], 
+    [SystemRolePermission].[SystemObjectPermissionId] AS [SystemObjectPermissionId]
+    FROM [dbo].[SystemRolePermission] AS [SystemRolePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UI Element" EntityType="Self.UI Element" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UI Element].[Id] AS [Id], 
+    [UI Element].[ObjectID] AS [ObjectID], 
+    [UI Element].[Name] AS [Name]
+    FROM [dbo].[UI Element] AS [UI Element]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UI Module" EntityType="Self.UI Module" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UI Module].[Id] AS [Id], 
+    [UI Module].[ObjectID] AS [ObjectID], 
+    [UI Module].[Name] AS [Name]
+    FROM [dbo].[UI Module] AS [UI Module]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UI Module Element" EntityType="Self.UI Module Element" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UI Module Element].[Id] AS [Id], 
+    [UI Module Element].[ObjectID] AS [ObjectID], 
+    [UI Module Element].[ModuleId] AS [ModuleId], 
+    [UI Module Element].[ElementId] AS [ElementId]
+    FROM [dbo].[UI Module Element] AS [UI Module Element]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_AvailableModulePermission" EntityType="Self.vw_AvailableModulePermission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_AvailableModulePermission].[ModuleElementObjectID] AS [ModuleElementObjectID], 
+    [vw_AvailableModulePermission].[elementName] AS [elementName], 
+    [vw_AvailableModulePermission].[ModuleName] AS [ModuleName], 
+    [vw_AvailableModulePermission].[PermissionId] AS [PermissionId], 
+    [vw_AvailableModulePermission].[PermissionName] AS [PermissionName], 
+    [vw_AvailableModulePermission].[SystemObjectPermissionId] AS [SystemObjectPermissionId]
+    FROM [dbo].[vw_AvailableModulePermission] AS [vw_AvailableModulePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Claimant" EntityType="Self.vw_Claimant" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Claimant].[ClaimantId] AS [ClaimantId], 
+    [vw_Claimant].[ObjectID] AS [ObjectID], 
+    [vw_Claimant].[domainpersonid] AS [domainpersonid], 
+    [vw_Claimant].[First_Name] AS [First_Name], 
+    [vw_Claimant].[Last_Name] AS [Last_Name], 
+    [vw_Claimant].[ssn] AS [ssn]
+    FROM [dbo].[vw_Claimant] AS [vw_Claimant]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_EffectiveOrgPermission" EntityType="Self.vw_EffectiveOrgPermission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_EffectiveOrgPermission].[OrgTypeAssignmentId] AS [OrgTypeAssignmentId], 
+    [vw_EffectiveOrgPermission].[OrgPermissionId] AS [OrgPermissionId], 
+    [vw_EffectiveOrgPermission].[SystemObjectPermissionId] AS [SystemObjectPermissionId], 
+    [vw_EffectiveOrgPermission].[OrganizationName] AS [OrganizationName], 
+    [vw_EffectiveOrgPermission].[OrganizationType] AS [OrganizationType], 
+    [vw_EffectiveOrgPermission].[ElementName] AS [ElementName], 
+    [vw_EffectiveOrgPermission].[ModuleName] AS [ModuleName], 
+    [vw_EffectiveOrgPermission].[PermissionName] AS [PermissionName]
+    FROM [dbo].[vw_EffectiveOrgPermission] AS [vw_EffectiveOrgPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_EffectiveRolePermission" EntityType="Self.vw_EffectiveRolePermission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_EffectiveRolePermission].[RoleId] AS [RoleId], 
+    [vw_EffectiveRolePermission].[RoleName] AS [RoleName], 
+    [vw_EffectiveRolePermission].[SystemRolePermissionId] AS [SystemRolePermissionId], 
+    [vw_EffectiveRolePermission].[systemObjectPermissionID] AS [systemObjectPermissionID], 
+    [vw_EffectiveRolePermission].[ElementName] AS [ElementName], 
+    [vw_EffectiveRolePermission].[ModuleName] AS [ModuleName], 
+    [vw_EffectiveRolePermission].[PermissionName] AS [PermissionName]
+    FROM [dbo].[vw_EffectiveRolePermission] AS [vw_EffectiveRolePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_EffectiveUserPermission" EntityType="Self.vw_EffectiveUserPermission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_EffectiveUserPermission].[SystemUserId] AS [SystemUserId], 
+    [vw_EffectiveUserPermission].[Username] AS [Username], 
+    [vw_EffectiveUserPermission].[ElementName] AS [ElementName], 
+    [vw_EffectiveUserPermission].[ModuleName] AS [ModuleName], 
+    [vw_EffectiveUserPermission].[PermissionName] AS [PermissionName], 
+    [vw_EffectiveUserPermission].[PermissionType] AS [PermissionType]
+    FROM [dbo].[vw_EffectiveUserPermission] AS [vw_EffectiveUserPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_OrgPerson" EntityType="Self.vw_OrgPerson" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_OrgPerson].[PersonID] AS [PersonID], 
+    [vw_OrgPerson].[FirstName] AS [FirstName], 
+    [vw_OrgPerson].[LastName] AS [LastName], 
+    [vw_OrgPerson].[Email] AS [Email], 
+    [vw_OrgPerson].[OrgTypeAssignmentID] AS [OrgTypeAssignmentID], 
+    [vw_OrgPerson].[OrgPersonID] AS [OrgPersonID], 
+    [vw_OrgPerson].[OrganizationName] AS [OrganizationName], 
+    [vw_OrgPerson].[OrganizationType] AS [OrganizationType]
+    FROM [dbo].[vw_OrgPerson] AS [vw_OrgPerson]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_OrgTypeAssignment" EntityType="Self.vw_OrgTypeAssignment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_OrgTypeAssignment].[OrganizationName] AS [OrganizationName], 
+    [vw_OrgTypeAssignment].[OrganizationType] AS [OrganizationType], 
+    [vw_OrgTypeAssignment].[OrgTypeAssignmentId] AS [OrgTypeAssignmentId]
+    FROM [dbo].[vw_OrgTypeAssignment] AS [vw_OrgTypeAssignment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_OrgUser" EntityType="Self.vw_OrgUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_OrgUser].[PersonID] AS [PersonID], 
+    [vw_OrgUser].[FirstName] AS [FirstName], 
+    [vw_OrgUser].[LastName] AS [LastName], 
+    [vw_OrgUser].[Email] AS [Email], 
+    [vw_OrgUser].[OrgTypeAssignmentID] AS [OrgTypeAssignmentID], 
+    [vw_OrgUser].[OrgPersonID] AS [OrgPersonID], 
+    [vw_OrgUser].[OrganizationName] AS [OrganizationName], 
+    [vw_OrgUser].[OrganizationType] AS [OrganizationType], 
+    [vw_OrgUser].[Username] AS [Username], 
+    [vw_OrgUser].[SystemUserId] AS [SystemUserId], 
+    [vw_OrgUser].[RecoveryEmail] AS [RecoveryEmail]
+    FROM [dbo].[vw_OrgUser] AS [vw_OrgUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_SystemObjectPermission" EntityType="Self.vw_SystemObjectPermission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_SystemObjectPermission].[ModuleElementId] AS [ModuleElementId], 
+    [vw_SystemObjectPermission].[ModuleElementObjectId] AS [ModuleElementObjectId], 
+    [vw_SystemObjectPermission].[ModuleId] AS [ModuleId], 
+    [vw_SystemObjectPermission].[ElementId] AS [ElementId], 
+    [vw_SystemObjectPermission].[SystemObjectPermissionID] AS [SystemObjectPermissionID], 
+    [vw_SystemObjectPermission].[PermissionId] AS [PermissionId], 
+    [vw_SystemObjectPermission].[PermissionName] AS [PermissionName]
+    FROM [dbo].[vw_SystemObjectPermission] AS [vw_SystemObjectPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_UserRole" EntityType="Self.vw_UserRole" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_UserRole].[systemuserRoleID] AS [systemuserRoleID], 
+    [vw_UserRole].[Username] AS [Username], 
+    [vw_UserRole].[UserId] AS [UserId], 
+    [vw_UserRole].[RoleName] AS [RoleName], 
+    [vw_UserRole].[RoleId] AS [RoleId]
+    FROM [dbo].[vw_UserRole] AS [vw_UserRole]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArcherConnectIAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrgPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgTypeAssignment" Type="Int32" />
+          <Property Name="Person" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrgType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrgTypeAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organization" Type="Int32" />
+          <Property Name="OrganizationType" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SystemPersonId" Type="Int32" />
+          <Property Name="RecoveryEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Bankruptcy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="DomainPersonId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Case">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CourtCaseRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Claim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Claimant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="DomainPersonId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DomainPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Medical_Record">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrgPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgTypeAssignmentId" Type="Int32" />
+          <Property Name="SystemObjectPermissionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SystemObjectPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="PermissionId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="IsWrite" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IsUpdate" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemRolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="SystemObjectPermissionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UI_Element">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UI_Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UI_Module_Element">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="ModuleId" Type="Int32" />
+          <Property Name="ElementId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_AvailableModulePermission">
+          <Key>
+            <PropertyRef Name="SystemObjectPermissionId" />
+          </Key>
+          <Property Name="ModuleElementObjectID" Type="Guid" />
+          <Property Name="elementName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SystemObjectPermissionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_Claimant">
+          <Key>
+            <PropertyRef Name="ClaimantId" />
+          </Key>
+          <Property Name="ClaimantId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectID" Type="Guid" />
+          <Property Name="domainpersonid" Type="Int32" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ssn" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_EffectiveOrgPermission">
+          <Key>
+            <PropertyRef Name="OrgTypeAssignmentId" />
+            <PropertyRef Name="OrgPermissionId" />
+            <PropertyRef Name="SystemObjectPermissionId" />
+          </Key>
+          <Property Name="OrgTypeAssignmentId" Type="Int32" Nullable="false" />
+          <Property Name="OrgPermissionId" Type="Int32" Nullable="false" />
+          <Property Name="SystemObjectPermissionId" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ElementName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_EffectiveRolePermission">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="SystemRolePermissionId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SystemRolePermissionId" Type="Int32" Nullable="false" />
+          <Property Name="systemObjectPermissionID" Type="Int32" />
+          <Property Name="ElementName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_EffectiveUserPermission">
+          <Key>
+            <PropertyRef Name="SystemUserId" />
+            <PropertyRef Name="PermissionType" />
+          </Key>
+          <Property Name="SystemUserId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ElementName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_OrgPerson">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="OrgTypeAssignmentID" />
+            <PropertyRef Name="OrgPersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrgTypeAssignmentID" Type="Int32" Nullable="false" />
+          <Property Name="OrgPersonID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_OrgTypeAssignment">
+          <Key>
+            <PropertyRef Name="OrgTypeAssignmentId" />
+          </Key>
+          <Property Name="OrganizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrgTypeAssignmentId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_OrgUser">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="OrgTypeAssignmentID" />
+            <PropertyRef Name="OrgPersonID" />
+            <PropertyRef Name="SystemUserId" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrgTypeAssignmentID" Type="Int32" Nullable="false" />
+          <Property Name="OrgPersonID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SystemUserId" Type="Int32" Nullable="false" />
+          <Property Name="RecoveryEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_SystemObjectPermission">
+          <Key>
+            <PropertyRef Name="ModuleElementId" />
+          </Key>
+          <Property Name="ModuleElementId" Type="Int32" Nullable="false" />
+          <Property Name="ModuleElementObjectId" Type="Guid" />
+          <Property Name="ModuleId" Type="Int32" />
+          <Property Name="ElementId" Type="Int32" />
+          <Property Name="SystemObjectPermissionID" Type="Int32" />
+          <Property Name="PermissionId" Type="Int32" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_UserRole">
+          <Key>
+            <PropertyRef Name="systemuserRoleID" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="systemuserRoleID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ArcherConnectIAMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="OrgPersons" EntityType="Self.OrgPerson" />
+          <EntitySet Name="OrgTypes" EntityType="Self.OrgType" />
+          <EntitySet Name="OrgTypeAssignments" EntityType="Self.OrgTypeAssignment" />
+          <EntitySet Name="SystemRoles" EntityType="Self.SystemRole" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+          <EntitySet Name="SystemUserRoles" EntityType="Self.SystemUserRole" />
+          <EntitySet Name="Bankruptcies" EntityType="Self.Bankruptcy" />
+          <EntitySet Name="Cases" EntityType="Self.Case" />
+          <EntitySet Name="Claims" EntityType="Self.Claim" />
+          <EntitySet Name="Claimants" EntityType="Self.Claimant" />
+          <EntitySet Name="DomainPersons" EntityType="Self.DomainPerson" />
+          <EntitySet Name="Liens" EntityType="Self.Lien" />
+          <EntitySet Name="Medical_Record" EntityType="Self.Medical_Record" />
+          <EntitySet Name="OrgPermissions" EntityType="Self.OrgPermission" />
+          <EntitySet Name="SystemObjectPermissions" EntityType="Self.SystemObjectPermission" />
+          <EntitySet Name="SystemPermissions" EntityType="Self.SystemPermission" />
+          <EntitySet Name="SystemPersons" EntityType="Self.SystemPerson" />
+          <EntitySet Name="SystemRolePermissions" EntityType="Self.SystemRolePermission" />
+          <EntitySet Name="UI_Elements" EntityType="Self.UI_Element" />
+          <EntitySet Name="UI_Modules" EntityType="Self.UI_Module" />
+          <EntitySet Name="UI_Module_Elements" EntityType="Self.UI_Module_Element" />
+          <EntitySet Name="vw_AvailableModulePermission" EntityType="Self.vw_AvailableModulePermission" />
+          <EntitySet Name="vw_Claimant" EntityType="Self.vw_Claimant" />
+          <EntitySet Name="vw_EffectiveOrgPermission" EntityType="Self.vw_EffectiveOrgPermission" />
+          <EntitySet Name="vw_EffectiveRolePermission" EntityType="Self.vw_EffectiveRolePermission" />
+          <EntitySet Name="vw_EffectiveUserPermission" EntityType="Self.vw_EffectiveUserPermission" />
+          <EntitySet Name="vw_OrgPerson" EntityType="Self.vw_OrgPerson" />
+          <EntitySet Name="vw_OrgTypeAssignment" EntityType="Self.vw_OrgTypeAssignment" />
+          <EntitySet Name="vw_OrgUser" EntityType="Self.vw_OrgUser" />
+          <EntitySet Name="vw_SystemObjectPermission" EntityType="Self.vw_SystemObjectPermission" />
+          <EntitySet Name="vw_UserRole" EntityType="Self.vw_UserRole" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArcherConnectIAMModelStoreContainer" CdmEntityContainer="ArcherConnectIAMEntities">
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgPersons">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.OrgPerson">
+              <MappingFragment StoreEntitySet="OrgPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrgTypeAssignment" ColumnName="OrgTypeAssignment" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgTypes">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.OrgType">
+              <MappingFragment StoreEntitySet="OrgType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgTypeAssignments">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.OrgTypeAssignment">
+              <MappingFragment StoreEntitySet="OrgTypeAssignment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemRoles">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemRole">
+              <MappingFragment StoreEntitySet="SystemRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUsers">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SystemPersonId" ColumnName="SystemPersonId" />
+                <ScalarProperty Name="RecoveryEmail" ColumnName="RecoveryEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUserRoles">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemUserRole">
+              <MappingFragment StoreEntitySet="SystemUserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bankruptcies">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Bankruptcy">
+              <MappingFragment StoreEntitySet="Bankruptcy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="DomainPersonId" ColumnName="DomainPersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cases">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Case">
+              <MappingFragment StoreEntitySet="Case">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CourtCaseRef" ColumnName="CourtCaseRef" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claims">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Claim">
+              <MappingFragment StoreEntitySet="Claim">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claimants">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Claimant">
+              <MappingFragment StoreEntitySet="Claimant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="DomainPersonId" ColumnName="DomainPersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DomainPersons">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.DomainPerson">
+              <MappingFragment StoreEntitySet="DomainPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Liens">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Lien">
+              <MappingFragment StoreEntitySet="Lien">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medical_Record">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.Medical_Record">
+              <MappingFragment StoreEntitySet="Medical_Record">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgPermissions">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.OrgPermission">
+              <MappingFragment StoreEntitySet="OrgPermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrgTypeAssignmentId" ColumnName="OrgTypeAssignmentId" />
+                <ScalarProperty Name="SystemObjectPermissionId" ColumnName="SystemObjectPermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemObjectPermissions">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemObjectPermission">
+              <MappingFragment StoreEntitySet="SystemObjectPermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemPermissions">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemPermission">
+              <MappingFragment StoreEntitySet="SystemPermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="IsWrite" ColumnName="IsWrite" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemPersons">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemPerson">
+              <MappingFragment StoreEntitySet="SystemPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemRolePermissions">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.SystemRolePermission">
+              <MappingFragment StoreEntitySet="SystemRolePermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="SystemObjectPermissionId" ColumnName="SystemObjectPermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UI_Elements">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.UI_Element">
+              <MappingFragment StoreEntitySet="UI Element">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UI_Modules">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.UI_Module">
+              <MappingFragment StoreEntitySet="UI Module">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UI_Module_Elements">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.UI_Module_Element">
+              <MappingFragment StoreEntitySet="UI Module Element">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ElementId" ColumnName="ElementId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_AvailableModulePermission">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_AvailableModulePermission">
+              <MappingFragment StoreEntitySet="vw_AvailableModulePermission">
+                <ScalarProperty Name="ModuleElementObjectID" ColumnName="ModuleElementObjectID" />
+                <ScalarProperty Name="elementName" ColumnName="elementName" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="SystemObjectPermissionId" ColumnName="SystemObjectPermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Claimant">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_Claimant">
+              <MappingFragment StoreEntitySet="vw_Claimant">
+                <ScalarProperty Name="ClaimantId" ColumnName="ClaimantId" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="domainpersonid" ColumnName="domainpersonid" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="ssn" ColumnName="ssn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_EffectiveOrgPermission">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_EffectiveOrgPermission">
+              <MappingFragment StoreEntitySet="vw_EffectiveOrgPermission">
+                <ScalarProperty Name="OrgTypeAssignmentId" ColumnName="OrgTypeAssignmentId" />
+                <ScalarProperty Name="OrgPermissionId" ColumnName="OrgPermissionId" />
+                <ScalarProperty Name="SystemObjectPermissionId" ColumnName="SystemObjectPermissionId" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_EffectiveRolePermission">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_EffectiveRolePermission">
+              <MappingFragment StoreEntitySet="vw_EffectiveRolePermission">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="SystemRolePermissionId" ColumnName="SystemRolePermissionId" />
+                <ScalarProperty Name="systemObjectPermissionID" ColumnName="systemObjectPermissionID" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_EffectiveUserPermission">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_EffectiveUserPermission">
+              <MappingFragment StoreEntitySet="vw_EffectiveUserPermission">
+                <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionType" ColumnName="PermissionType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_OrgPerson">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_OrgPerson">
+              <MappingFragment StoreEntitySet="vw_OrgPerson">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OrgTypeAssignmentID" ColumnName="OrgTypeAssignmentID" />
+                <ScalarProperty Name="OrgPersonID" ColumnName="OrgPersonID" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_OrgTypeAssignment">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_OrgTypeAssignment">
+              <MappingFragment StoreEntitySet="vw_OrgTypeAssignment">
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+                <ScalarProperty Name="OrgTypeAssignmentId" ColumnName="OrgTypeAssignmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_OrgUser">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_OrgUser">
+              <MappingFragment StoreEntitySet="vw_OrgUser">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OrgTypeAssignmentID" ColumnName="OrgTypeAssignmentID" />
+                <ScalarProperty Name="OrgPersonID" ColumnName="OrgPersonID" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+                <ScalarProperty Name="RecoveryEmail" ColumnName="RecoveryEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_SystemObjectPermission">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_SystemObjectPermission">
+              <MappingFragment StoreEntitySet="vw_SystemObjectPermission">
+                <ScalarProperty Name="ModuleElementId" ColumnName="ModuleElementId" />
+                <ScalarProperty Name="ModuleElementObjectId" ColumnName="ModuleElementObjectId" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ElementId" ColumnName="ElementId" />
+                <ScalarProperty Name="SystemObjectPermissionID" ColumnName="SystemObjectPermissionID" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_UserRole">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_UserRole">
+              <MappingFragment StoreEntitySet="vw_UserRole">
+                <ScalarProperty Name="systemuserRoleID" ColumnName="systemuserRoleID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

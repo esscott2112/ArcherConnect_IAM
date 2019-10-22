@@ -1,0 +1,2 @@
+﻿CREATE USER [ARCHER\escott] FOR LOGIN [ARCHER\escott];
+

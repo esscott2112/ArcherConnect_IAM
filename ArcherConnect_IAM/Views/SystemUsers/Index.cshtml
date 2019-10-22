@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ArcherConnect_IAM.Models.SystemUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Archer Connect Users</h2>
+<h3>These are system credentials.  Credentials can be associated with a person but it is not Required.  Think system and applicaiton credentials</h3>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SystemPersonId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecoveryEmail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SystemPersonId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecoveryEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

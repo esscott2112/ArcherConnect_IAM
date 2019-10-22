@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcherConnect_IAM", "ArcherConnect_IAM\ArcherConnect_IAM.csproj", "{DDF86A71-4519-4E34-A051-7E2A457EC879}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ArcherConnect_IAM_DB", "ArcherConnect_IAM_DB\ArcherConnect_IAM_DB.sqlproj", "{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDF86A71-4519-4E34-A051-7E2A457EC879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF86A71-4519-4E34-A051-7E2A457EC879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF86A71-4519-4E34-A051-7E2A457EC879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF86A71-4519-4E34-A051-7E2A457EC879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCE8A3FD-B6A4-477D-9635-A2A2AB4C553B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1030D18-9D12-4275-8CB7-C28571BDFD9C}
+	EndGlobalSection
+EndGlobal

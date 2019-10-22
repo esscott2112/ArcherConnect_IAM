@@ -1,0 +1,34 @@
+﻿@model ArcherConnect_IAM.Models.vw_OrgTypeAssignment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>vw_OrgTypeAssignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrgTypeAssignmentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
