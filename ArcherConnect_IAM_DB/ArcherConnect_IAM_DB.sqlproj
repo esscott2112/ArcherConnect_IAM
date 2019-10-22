@@ -97,5 +97,8 @@
     <Build Include="dbo\Views\vw_AvailableModulePermission.sql" />
     <Build Include="Security\ARCHER_escott.sql" />
     <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Views\vw_EffectiveRolePermission_DomainData.sql" />
+    <Build Include="dbo\Views\vw_DomainData.sql" />
+    <Build Include="dbo\Views\vw_AvailableDomainDataPermission.sql" />
   </ItemGroup>
 </Project>
