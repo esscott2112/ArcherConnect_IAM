@@ -143,6 +143,7 @@
     <Compile Include="Controllers\SystemUsersController.cs" />
     <Compile Include="Controllers\vw_EffectiveOrgPermissionController.cs" />
     <Compile Include="Controllers\vw_EffectiveRolePermissionController.cs" />
+    <Compile Include="Controllers\vw_EffectiveRolePermission_DomainDataController.cs" />
     <Compile Include="Controllers\vw_EffectiveUserPermissionController.cs" />
     <Compile Include="Controllers\vw_OrgPersonController.cs" />
     <Compile Include="Controllers\vw_OrgTypeAssignmentController.cs" />
@@ -237,10 +238,16 @@
     <Compile Include="Models\vw_Claimant.cs">
       <DependentUpon>IAM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vw_DomainData.cs">
+      <DependentUpon>IAM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vw_EffectiveOrgPermission.cs">
       <DependentUpon>IAM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_EffectiveRolePermission.cs">
+      <DependentUpon>IAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_EffectiveRolePermission_DomainData.cs">
       <DependentUpon>IAM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_EffectiveUserPermission.cs">
@@ -370,6 +377,12 @@
     <Content Include="Views\vw_OrgPerson\Details.cshtml" />
     <Content Include="Views\vw_OrgPerson\Edit.cshtml" />
     <Content Include="Views\vw_OrgPerson\Index.cshtml" />
+    <Content Include="Views\vw_EffectiveRolePermission_DomainData\Create.cshtml" />
+    <Content Include="Views\vw_EffectiveRolePermission_DomainData\Delete.cshtml" />
+    <Content Include="Views\vw_EffectiveRolePermission_DomainData\Details.cshtml" />
+    <Content Include="Views\vw_EffectiveRolePermission_DomainData\Edit.cshtml" />
+    <Content Include="Views\vw_EffectiveRolePermission_DomainData\Index.cshtml" />
+    <Content Include="Views\Home\ComingSoon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

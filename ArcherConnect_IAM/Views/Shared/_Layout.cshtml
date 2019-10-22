@@ -25,7 +25,7 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("System User", "", "SystemUsers")</li>
                             <li>@Html.ActionLink("System People", "", "SystemPersons")</li>
-                            <li>@Html.ActionLink("System Roles", "", "SystemRole")</li>
+                            <li>@Html.ActionLink("System Roles", "", "SystemRoles")</li>
                             <li>@Html.ActionLink("Organizations", "", "vw_OrgTypeAssignment")</li>
                         </ul>
                     </li>
@@ -47,11 +47,19 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Effective Permissions<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Effective View Permissions<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Effective User Permissions", "", "vw_EffectiveUserPermission")</li>
                             <li>@Html.ActionLink("Effective Role Permissions", "", "vw_EffectiveRolePermission")</li>
                             <li>@Html.ActionLink("Effective Org Permissions", "", "vw_EffectiveOrgPermission")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Effective Data Permissions<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Effective User Permissions", "ComingSoon", "Home")</li>
+                            <li>@Html.ActionLink("Effective Role Permissions", "", "vw_EffectiveRolePermission_DomainData")</li>
+                            <li>@Html.ActionLink("Effective Org Permissions", "ComingSoon", "Home")</li>
                         </ul>
                     </li>
                 </ul>

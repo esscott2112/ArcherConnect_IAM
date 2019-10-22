@@ -57,5 +57,7 @@ namespace ArcherConnect_IAM.Models
         public virtual DbSet<vw_OrgUser> vw_OrgUser { get; set; }
         public virtual DbSet<vw_SystemObjectPermission> vw_SystemObjectPermission { get; set; }
         public virtual DbSet<vw_UserRole> vw_UserRole { get; set; }
+        public virtual DbSet<vw_EffectiveRolePermission_DomainData> vw_EffectiveRolePermission_DomainData { get; set; }
+        public virtual DbSet<vw_DomainData> vw_DomainData { get; set; }
     }
 }

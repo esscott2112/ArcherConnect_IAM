@@ -26,5 +26,11 @@ namespace ArcherConnect_IAM.Controllers
 
             return View();
         }
+        public ActionResult ComingSoon()
+        {
+            ViewBag.Message = "This Functionality is not yet developed.";
+
+            return View();
+        }
     }
 }

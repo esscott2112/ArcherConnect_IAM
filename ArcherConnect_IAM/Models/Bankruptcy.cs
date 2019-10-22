@@ -17,5 +17,6 @@ namespace ArcherConnect_IAM.Models
         public int Id { get; set; }
         public Nullable<System.Guid> ObjectID { get; set; }
         public Nullable<int> DomainPersonId { get; set; }
+        public string Name { get; set; }
     }
 }

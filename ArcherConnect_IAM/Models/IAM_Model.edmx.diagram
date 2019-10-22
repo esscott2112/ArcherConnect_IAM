@@ -37,6 +37,8 @@
         <EntityTypeShape EntityType="ArcherConnectIAMModel.vw_OrgUser" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ArcherConnectIAMModel.vw_SystemObjectPermission" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ArcherConnectIAMModel.vw_UserRole" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArcherConnectIAMModel.vw_EffectiveRolePermission_DomainData" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ArcherConnectIAMModel.vw_DomainData" Width="1.5" PointX="13.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

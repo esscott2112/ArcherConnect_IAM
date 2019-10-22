@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ArcherConnectIAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ArcherConnectIAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ArcherConnectIAM.dbo.Bankruptcy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Bankruptcy">
@@ -14,6 +14,7 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.Bankruptcy' does not have a p
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ObjectID" Type="uniqueidentifier" />
           <Property Name="DomainPersonId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ArcherConnectIAM.dbo.Case' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -246,6 +247,16 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_Claimant' does not have a 
           <Property Name="ssn" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_DomainData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_DomainData">
+          <Key>
+            <PropertyRef Name="DataType" />
+          </Key>
+          <Property Name="ObjectId" Type="uniqueidentifier" />
+          <Property Name="DataType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="511" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveOrgPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_EffectiveOrgPermission">
           <Key>
@@ -276,6 +287,23 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveRolePermission' d
           <Property Name="ElementName" Type="nvarchar" MaxLength="255" />
           <Property Name="ModuleName" Type="nvarchar" MaxLength="255" />
           <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveRolePermission_DomainData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_EffectiveRolePermission_DomainData">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="SystemRolePermissionId" />
+            <PropertyRef Name="DataType" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemRolePermissionId" Type="int" Nullable="false" />
+          <Property Name="systemObjectPermissionID" Type="int" />
+          <Property Name="DataType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="objectId" Type="uniqueidentifier" />
+          <Property Name="name" Type="nvarchar" MaxLength="511" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_EffectiveUserPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -386,7 +414,8 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
             <DefiningQuery>SELECT 
     [Bankruptcy].[Id] AS [Id], 
     [Bankruptcy].[ObjectID] AS [ObjectID], 
-    [Bankruptcy].[DomainPersonId] AS [DomainPersonId]
+    [Bankruptcy].[DomainPersonId] AS [DomainPersonId], 
+    [Bankruptcy].[Name] AS [Name]
     FROM [dbo].[Bankruptcy] AS [Bankruptcy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Case" EntityType="Self.Case" store:Type="Tables" store:Schema="dbo">
@@ -515,6 +544,13 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
     [vw_Claimant].[ssn] AS [ssn]
     FROM [dbo].[vw_Claimant] AS [vw_Claimant]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_DomainData" EntityType="Self.vw_DomainData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_DomainData].[ObjectId] AS [ObjectId], 
+    [vw_DomainData].[DataType] AS [DataType], 
+    [vw_DomainData].[Name] AS [Name]
+    FROM [dbo].[vw_DomainData] AS [vw_DomainData]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_EffectiveOrgPermission" EntityType="Self.vw_EffectiveOrgPermission" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_EffectiveOrgPermission].[OrgTypeAssignmentId] AS [OrgTypeAssignmentId], 
@@ -537,6 +573,18 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
     [vw_EffectiveRolePermission].[ModuleName] AS [ModuleName], 
     [vw_EffectiveRolePermission].[PermissionName] AS [PermissionName]
     FROM [dbo].[vw_EffectiveRolePermission] AS [vw_EffectiveRolePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_EffectiveRolePermission_DomainData" EntityType="Self.vw_EffectiveRolePermission_DomainData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_EffectiveRolePermission_DomainData].[RoleId] AS [RoleId], 
+    [vw_EffectiveRolePermission_DomainData].[RoleName] AS [RoleName], 
+    [vw_EffectiveRolePermission_DomainData].[SystemRolePermissionId] AS [SystemRolePermissionId], 
+    [vw_EffectiveRolePermission_DomainData].[systemObjectPermissionID] AS [systemObjectPermissionID], 
+    [vw_EffectiveRolePermission_DomainData].[DataType] AS [DataType], 
+    [vw_EffectiveRolePermission_DomainData].[PermissionName] AS [PermissionName], 
+    [vw_EffectiveRolePermission_DomainData].[objectId] AS [objectId], 
+    [vw_EffectiveRolePermission_DomainData].[name] AS [name]
+    FROM [dbo].[vw_EffectiveRolePermission_DomainData] AS [vw_EffectiveRolePermission_DomainData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_EffectiveUserPermission" EntityType="Self.vw_EffectiveUserPermission" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -603,8 +651,7 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
     FROM [dbo].[vw_UserRole] AS [vw_UserRole]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ArcherConnectIAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -671,6 +718,7 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ObjectID" Type="Guid" />
           <Property Name="DomainPersonId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Case">
           <Key>
@@ -953,7 +1001,32 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
           <EntitySet Name="vw_OrgUser" EntityType="Self.vw_OrgUser" />
           <EntitySet Name="vw_SystemObjectPermission" EntityType="Self.vw_SystemObjectPermission" />
           <EntitySet Name="vw_UserRole" EntityType="Self.vw_UserRole" />
+          <EntitySet Name="vw_EffectiveRolePermission_DomainData" EntityType="ArcherConnectIAMModel.vw_EffectiveRolePermission_DomainData" />
+          <EntitySet Name="vw_DomainData" EntityType="ArcherConnectIAMModel.vw_DomainData" />
         </EntityContainer>
+        <EntityType Name="vw_EffectiveRolePermission_DomainData">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="SystemRolePermissionId" />
+            <PropertyRef Name="DataType" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SystemRolePermissionId" Type="Int32" Nullable="false" />
+          <Property Name="systemObjectPermissionID" Type="Int32" />
+          <Property Name="DataType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="objectId" Type="Guid" />
+          <Property Name="name" Type="String" MaxLength="511" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_DomainData">
+          <Key>
+            <PropertyRef Name="DataType" />
+          </Key>
+          <Property Name="ObjectId" Type="Guid" />
+          <Property Name="DataType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="511" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1026,6 +1099,7 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
           <EntitySetMapping Name="Bankruptcies">
             <EntityTypeMapping TypeName="ArcherConnectIAMModel.Bankruptcy">
               <MappingFragment StoreEntitySet="Bankruptcy">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
                 <ScalarProperty Name="DomainPersonId" ColumnName="DomainPersonId" />
@@ -1290,6 +1364,29 @@ warning 6002: The table/view 'ArcherConnectIAM.dbo.vw_UserRole' does not have a 
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_EffectiveRolePermission_DomainData">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_EffectiveRolePermission_DomainData">
+              <MappingFragment StoreEntitySet="vw_EffectiveRolePermission_DomainData">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="objectId" ColumnName="objectId" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="systemObjectPermissionID" ColumnName="systemObjectPermissionID" />
+                <ScalarProperty Name="SystemRolePermissionId" ColumnName="SystemRolePermissionId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_DomainData">
+            <EntityTypeMapping TypeName="ArcherConnectIAMModel.vw_DomainData">
+              <MappingFragment StoreEntitySet="vw_DomainData">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
